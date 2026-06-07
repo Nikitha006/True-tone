@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueTone - Dysarthric Speech Translation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>TrueTone</h1>
+            <p>AI-powered speech translation for clearer communication</p>
+        </header>
+
+        <main>
+            <div class="recording-section">
+                <div class="mic-container">
+                    <button id="recordBtn" class="mic-button">
+                        <div class="mic-icon">🎤</div>
+                        <span id="recordText">Click to Record</span>
+                    </button>
+                    <div id="waveform" class="waveform" style="display: none;">
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                        <div class="wave-bar"></div>
+                    </div>
+                </div>
+
+                <div class="upload-section">
+                    <label for="fileInput" class="upload-btn">
+                        Or Upload Audio File
+                    </label>
+                    <input type="file" id="fileInput" accept=".wav,.mp3" style="display: none;">
+                    <span id="fileName" class="file-name"></span>
+                </div>
+            </div>
+
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Processing your speech...</p>
+            </div>
+
+            <div id="results" class="results" style="display: none;">
+                <div class="result-card">
+                    <h3>Raw Transcription</h3>
+                    <p id="rawText"></p>
+                </div>
+
+                <div class="result-card corrected">
+                    <h3>Corrected Text</h3>
+                    <p id="correctedText"></p>
+                    <div class="actions">
+                        <button id="playBtn" class="action-btn">🔊 Play Speech</button>
+                        <button id="downloadBtn" class="action-btn">📥 Download Text</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Helping people with dysarthria communicate more clearly</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
